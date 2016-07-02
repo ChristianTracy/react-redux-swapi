@@ -5,7 +5,7 @@ export function swapiReducer(state, action){
   case LOAD_FETCHED_DATA:
     console.log(action.body);
     return {
-      people: action.body.results,
+      people: state.people.concat(action.body.results),
       next: action.body.next
     }
   default:
