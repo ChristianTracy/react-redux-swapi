@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 
 import StarWarsApp from './components/StarWarsApp';
 import {swapiReducer} from './reducers';
-import {fetchData} from './actions';
+import {fetchData, loadMore} from './actions';
 
 let store = createStore(
   swapiReducer,

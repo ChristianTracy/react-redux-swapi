@@ -24,3 +24,18 @@ export let fetchData = () => {
       });
   };
 };
+
+export let loadMore = (nextPage) => {
+  return (dispatch) => {
+    fetch(nextPage)
+      .then((res) => {
+        return res.json()
+      }, (err) => {
+        console.error("RROR");
+        console.error(err);
+      })
+      .then((body) => {
+        dispatch(loadFetchedData(body));
+      });
+  };
+};
