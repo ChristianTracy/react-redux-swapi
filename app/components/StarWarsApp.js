@@ -26,7 +26,7 @@ class StarWarsApp extends React.Component {
     });
     return <div>
       {components}
-      <LoadMore handleLoadMore={this.loadMoreHandler}></LoadMore>
+      <LoadMore handleLoadMore={this.loadMoreHandler} loading={this.state.loading}></LoadMore>
     </div>;
   }
 }

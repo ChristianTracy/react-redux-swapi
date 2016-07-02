@@ -1,4 +1,5 @@
 export const LOAD_FETCHED_DATA = 'LOAD_FETCHED_DATA';
+export const START_LOADING_DATA = 'START_LOADING_DATA';
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -12,6 +13,7 @@ export let loadFetchedData = (body) => {
 
 export let fetchData = () => {
   return (dispatch) => {
+    dispatch(startLoading());
     fetch('http://swapi.co/api/people/')
       .then((res) => {
         return res.json()
@@ -39,3 +41,9 @@ export let loadMore = (nextPage) => {
       });
   };
 };
+
+export let startLoading = () => {
+  return {
+    type: START_LOADING_DATA
+  };
+}
